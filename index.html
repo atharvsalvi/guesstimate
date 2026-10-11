@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#120d0c] text-[#ece0de]" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE ESTIMATR — Red John Case Drill Engine</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim as mandated -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-fixed-variant": "#930007",
+          "surface-variant": "#3a3332",
+          "primary-fixed": "#ffdad5",
+          "surface": "#171211",
+          "on-secondary-fixed-variant": "#574500",
+          "background": "#171211",
+          "tertiary-container": "#706149",
+          "surface-container-high": "#2f2927",
+          "inverse-primary": "#be0e11",
+          "secondary-fixed-dim": "#e9c349",
+          "error": "#ffb4ab",
+          "on-tertiary": "#3a2f1a",
+          "on-primary-fixed": "#410001",
+          "on-surface": "#ece0de",
+          "on-tertiary-fixed": "#241a08",
+          "surface-container": "#241e1d",
+          "on-secondary-fixed": "#241a00",
+          "tertiary-fixed-dim": "#d7c4a7",
+          "on-tertiary-fixed-variant": "#52452f",
+          "on-secondary-container": "#342800",
+          "tertiary-fixed": "#f4e0c2",
+          "primary-fixed-dim": "#ffb4aa",
+          "inverse-surface": "#ece0de",
+          "on-primary-container": "#ffd7d2",
+          "surface-container-highest": "#3a3332",
+          "surface-dim": "#171211",
+          "on-error": "#690005",
+          "primary": "#ffb4aa",
+          "error-container": "#93000a",
+          "primary-container": "#c51616",
+          "secondary-fixed": "#ffe088",
+          "on-tertiary-container": "#f2ddc0",
+          "on-primary": "#690003",
+          "inverse-on-surface": "#362f2e",
+          "tertiary": "#d7c4a7",
+          "surface-container-lowest": "#120d0c",
+          "on-surface-variant": "#e6bdb8",
+          "outline-variant": "#5c403c",
+          "on-error-container": "#ffdad6",
+          "secondary": "#e9c349",
+          "on-background": "#ece0de",
+          "outline": "#ac8883",
+          "secondary-container": "#af8d11",
+          "surface-tint": "#ffb4aa",
+          "surface-bright": "#3f3836",
+          "surface-container-low": "#201a19",
+          "on-secondary": "#3c2f00"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2.5rem",
+          "margin": "2rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "gutter": "1.5rem"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Newsreader"],
+          "headline-md": ["Newsreader"],
+          "label-md": ["Space Mono"],
+          "body-lg": ["Work Sans"],
+          "headline-xl": ["Newsreader"],
+          "title-md": ["Newsreader"],
+          "body-md": ["Work Sans"],
+          "headline-lg": ["Newsreader"],
+          "label-sm": ["Space Mono"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+          "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+          "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+          "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "headline-lg": ["36px", { "lineHeight": "44px", "fontWeight": "600" }],
+          "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "500" }]
+        }
+      }
+    }
+  }
+</script>
+<link href="code.css" rel="stylesheet"/>
+</head>
+<body class="h-full relative flex flex-col justify-between noir-desk-texture font-body-md text-on-surface antialiased overflow-hidden select-none">
+<!-- Atmospheric Detective Desk Scene Props & Background Elements (Tightly Framed, Rich Contrast) -->
+<!-- Top-Right: Red John Painted Smiley Face (Highly visible, vivid blood-red icon like reference image) -->
+<div class="absolute top-2 sm:top-5 right-4 sm:right-12 w-48 sm:w-64 md:w-72 h-48 sm:h-64 md:h-72 pointer-events-none select-none red-john-motif z-0">
+<svg class="w-full h-full" fill="none" stroke="#c51616" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" viewbox="0 0 100 100">
+<!-- Outer bloody hand-painted circle with uneven rough brush stroke -->
+<path d="M 50,7 A 43,43 0 1,1 17,25" stroke-dasharray="145 9 28 8"></path>
+<!-- Eyes -->
+<circle cx="36" cy="38" fill="#c51616" r="3.6" stroke="none"></circle>
+<circle cx="64" cy="38" fill="#c51616" r="3.6" stroke="none"></circle>
+<!-- Dripping curved sadistic smile -->
+<path d="M 27,58 Q 50,86 73,58" stroke-width="5.5"></path>
+<path d="M 33,65 Q 34,78 34,81" opacity="0.9" stroke-width="2.8"></path>
+<path d="M 67,65 Q 68,79 68,83" opacity="0.9" stroke-width="2.8"></path>
+</svg>
+</div>
+<!-- Top-Right Edge: Detective Ceramic Coffee Cup with dark roasted espresso ring (Like Reference) -->
+<div class="absolute -top-6 -right-6 w-32 sm:w-44 h-32 sm:h-44 rounded-full border-[7px] border-[#e4d7c6] bg-[#120a08] shadow-[0_15px_35px_rgba(0,0,0,0.8),inset_0_4px_18px_rgba(0,0,0,0.9)] pointer-events-none z-0 hidden sm:flex items-center justify-center">
+<div class="w-20 sm:w-28 h-20 sm:h-28 rounded-full bg-[#1e100a] border border-[#4a2e1d] shadow-inner flex items-center justify-center">
+<div class="w-14 sm:w-20 h-14 sm:h-20 rounded-full bg-[#110804] opacity-95"></div>
+</div>
+</div>
+<!-- Top-Left: Manila Dossier Folder & Case Paperwork (Tightly surrounding wheel) -->
+<div class="absolute -top-6 -left-6 sm:left-4 w-60 sm:w-72 md:w-80 h-72 sm:h-80 bg-[#c2a275] border-2 border-[#8c7046] shadow-[0_20px_40px_rgba(0,0,0,0.85)] rounded-sm transform -rotate-6 pointer-events-none z-0 flex flex-col p-5">
+<div class="flex items-center justify-between mb-2">
+<div class="confidential-stamp font-label-md text-xs sm:text-[13px] px-2.5 py-0.5 font-bold bg-[#f4e0c2]/90">
+      CONFIDENTIAL
+    </div>
+<span class="font-label-sm text-[10px] text-[#4d3b25] font-bold tracking-widest">CBI-DIV-01</span>
+</div>
+<!-- Attached suspect mugshot/photo -->
+<div class="w-28 sm:w-32 h-28 sm:h-32 bg-[#201815] border-2 border-[#ffffff] shadow-md p-1 transform rotate-3 mt-1">
+<div class="w-full h-full bg-[#2a2220] flex flex-col items-center justify-center text-[#d7c4a7] border border-[#52452f]">
+<span class="material-symbols-outlined text-3xl sm:text-4xl text-[#d7c4a7]/80">person</span>
+<span class="font-label-sm text-[8px] uppercase tracking-wider text-[#d7c4a7] mt-1 font-bold">SUSPECT DOSSIER</span>
+</div>
+</div>
+<div class="space-y-2 mt-3">
+<div class="h-2 bg-[#8c7046]/45 w-4/5 rounded-xs"></div>
+<div class="h-2 bg-[#8c7046]/40 w-3/5 rounded-xs"></div>
+<div class="h-2 bg-[#8c7046]/35 w-2/3 rounded-xs"></div>
+</div>
+<div class="mt-auto font-label-sm text-[10px] sm:text-[11px] text-[#362714] font-bold tracking-wider uppercase border-t border-[#8c7046]/40 pt-1.5 flex justify-between">
+<span>CASE: #RJ-7740-B</span>
+<span class="text-[#c51616]">ACTIVE</span>
+</div>
+</div>
+<!-- Bottom-Left: Jane's Lined Notepad & Paper Clips (Framing tightly near bottom) -->
+<div class="absolute -bottom-8 -left-4 sm:left-6 w-56 sm:w-68 md:w-72 h-60 sm:h-68 bg-[#dfcfb4] border border-[#a49175] shadow-2xl rounded-sm transform rotate-4 pointer-events-none z-0 p-5 flex flex-col">
+<div class="border-b border-[#c5b194] pb-1.5 mb-2 flex items-center justify-between">
+<span class="font-headline-md italic font-bold text-base sm:text-lg text-[#261d15]">The Mentalist</span>
+<div class="w-5 h-5 rounded-full border-2 border-[#c51616] flex items-center justify-center">
+<span class="text-[#c51616] text-[10px] leading-none">☺</span>
+</div>
+</div>
+<div class="space-y-2.5 text-[#4a3928] font-body-md text-xs italic">
+<p class="leading-relaxed border-b border-[#d8c8af]/80 pb-1">"There is no such thing as luck. Only precision."</p>
+<p class="leading-relaxed border-b border-[#d8c8af]/80 pb-1">— P. Jane, CBI Consultant</p>
+</div>
+<div class="mt-auto flex items-center gap-2">
+<!-- Paperclip rendering -->
+<div class="w-4 h-9 rounded-full border-2 border-[#6d5e4b] transform -rotate-12"></div>
+<div class="w-3.5 h-8 rounded-full border-2 border-[#544634] transform rotate-6"></div>
+</div>
+</div>
+<!-- Bottom-Right: Forensic Exhibit Polaroid Photo & Luxury Desk Pen (Tightly framing wheel) -->
+<div class="absolute -bottom-6 right-2 sm:right-8 md:right-14 w-44 sm:w-56 h-56 sm:h-64 bg-[#f8efe2] shadow-2xl p-3 sm:p-3.5 border border-[#c4b5a2] rounded-xs transform -rotate-3 pointer-events-none z-0 flex flex-col">
+<div class="w-full h-36 sm:h-44 bg-[#1e1715] flex flex-col items-center justify-center border border-[#7a6558]/40 shadow-inner relative overflow-hidden">
+<!-- Bloody smiley mark on exhibit photo -->
+<svg class="w-20 h-20 opacity-80 stroke-[#c51616]" fill="none" stroke-width="3.5" viewbox="0 0 40 40">
+<path d="M 20,4 A 16,16 0 1,1 8,11"></path>
+<circle cx="15" cy="16" fill="#c51616" r="1.6"></circle>
+<circle cx="25" cy="16" fill="#c51616" r="1.6"></circle>
+<path d="M 12,24 Q 20,33 28,24" stroke-width="3"></path>
+</svg>
+<span class="absolute bottom-1 right-2 font-label-sm text-[8px] text-[#f4e0c2] bg-black/60 px-1 py-0.5 rounded-xs">CRIME SCENE #4</span>
+</div>
+<div class="mt-2.5 text-center font-label-sm text-[11px] sm:text-xs text-[#241a00] font-bold tracking-widest uppercase">
+    EXHIBIT 09 // SACRAMENTO
+  </div>
+</div>
+<!-- Detective Gold/Black Fountain Pen resting across the desk bottom-right -->
+<div class="absolute bottom-28 sm:bottom-32 right-36 sm:right-56 w-48 sm:w-60 h-4 bg-gradient-to-r from-[#0d0908] via-[#241c19] to-[#0d0908] rounded-full border-t border-b border-[#ffe088] shadow-2xl transform -rotate-12 pointer-events-none z-0 hidden md:block">
+<div class="absolute left-6 w-3 h-full bg-[#ffd659]"></div>
+<div class="absolute left-10 w-1.5 h-full bg-[#ffd659]"></div>
+<div class="absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[14px] border-l-[#ffe088]"></div>
+</div>
+<!-- Ambient Rings for Vignette Depth -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(10,7,6,0.85)_100%)] pointer-events-none z-0"></div>
+<!-- Top Header: "THE ESTIMATR" Title Treatment & Case HUD (High Contrast) -->
+<header class="relative z-20 w-full px-6 sm:px-10 pt-4 sm:pt-5 flex items-center justify-between pointer-events-none shrink-0">
+<!-- Brand Identity: Stylized after "THE MENTALIST" -->
+<div class="flex items-center gap-3.5 pointer-events-auto">
+<div class="flex items-center tracking-tight drop-shadow-md">
+<span class="font-headline-md sm:font-headline-lg font-light text-[#ffffff] uppercase tracking-wider mr-2">THE</span>
+<div class="px-3 py-0.5 border-2 border-[#c51616] bg-[#c51616]/25 backdrop-blur-sm flex items-center justify-center shadow-[0_0_15px_rgba(197,22,22,0.4)]">
+<span class="font-headline-md sm:font-headline-lg font-bold text-[#ffdad5] uppercase tracking-widest text-shadow">ESTIMATR</span>
+</div>
+</div>
+<div class="hidden sm:flex flex-col ml-3 pl-3 border-l-2 border-[#8c7046]">
+<span class="font-label-sm text-[11px] uppercase tracking-widest text-[#fce5b8] font-bold">CBI Investigation</span>
+<span class="font-label-sm text-[10px] tracking-wider text-[#d7c4a7]">Behavioral Drills // Unit</span>
+</div>
+</div>
+<!-- Ambient Top HUD Metadata & Audio Toggle -->
+<div class="flex items-center gap-2.5 sm:gap-3 pointer-events-auto">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-sm border border-[#8c7046] bg-[#1f1816]/95 backdrop-blur-md text-[#fce5b8] font-label-sm text-[11px] uppercase tracking-wider shadow-lg">
+<span class="w-2 h-2 rounded-full bg-[#c51616] shadow-[0_0_8px_#c51616] animate-pulse"></span>
+<span class="font-bold">8 Sectors Active</span>
+</div>
+<div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#8c7046]/80 bg-[#1f1816]/95 backdrop-blur-md text-[#d7c4a7] font-label-sm text-[11px] uppercase tracking-wider shadow-lg">
+<span>Key:</span>
+<kbd class="px-1.5 py-0.5 rounded-xs bg-[#120d0c] border border-[#e9c349] text-[#ffe088] font-label-sm text-[10px] font-bold">SPACE</kbd>
+</div>
+<!-- Sound Mute/Active Toggle -->
+<button class="flex items-center justify-center w-9 h-9 rounded-sm border border-[#8c7046] bg-[#241e1d] hover:bg-[#342b29] text-[#fce5b8] hover:text-[#ffe088] transition-colors shadow-lg active:scale-95" id="sound-toggle-btn" title="Toggle Investigation Audio">
+<span class="material-symbols-outlined text-[19px]" data-icon="volume_up" id="sound-icon">volume_up</span>
+</button>
+</div>
+</header>
+<!-- Centered Precision Guesstimate Wheel Stage (Scaled Up to 680-720px Desktop Diameter) -->
+<main class="relative z-10 flex-1 flex items-center justify-center py-1 sm:py-2 px-2 overflow-hidden">
+<!-- Wheel Assembly: Sized 340px mobile -> 500px tablet -> 680px-700px desktop -->
+<div class="relative w-[340px] sm:w-[500px] md:w-[620px] lg:w-[690px] xl:w-[710px] h-[340px] sm:h-[500px] md:h-[620px] lg:h-[690px] xl:h-[710px] flex items-center justify-center">
+<!-- Outer Dual Brass/Gold Metallic Rim Ring (matching The Mentalist wheel) -->
+<div class="absolute inset-0 rounded-full p-[4px] brass-gradient-rim shadow-[0_0_40px_rgba(233,195,73,0.35),0_15px_45px_rgba(0,0,0,0.9)] pointer-events-none">
+<div class="w-full h-full rounded-full bg-[#181110] p-[3px]">
+<div class="w-full h-full rounded-full border-2 border-[#e9c349]/70 shadow-inner"></div>
+</div>
+</div>
+<div class="absolute -inset-2.5 rounded-full border border-[#e9c349]/40 border-dashed pointer-events-none"></div>
+<!-- Needle Indicator strictly at 3 o'clock (right edge), pointing LEFT (◄) inward into the wheel -->
+<!-- High-contrast crimson triangle with bright gold trim -->
+<div class="absolute -right-4 sm:-right-5 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+<svg class="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11" fill="none" viewbox="0 0 32 32">
+<!-- Golden outer metallic triangle border pointing strictly left (from right to left ◄) -->
+<path d="M 3 16 L 29 3 L 29 29 Z" fill="#d91818" stroke="#ffd659" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Inner subtle crimson highlight bevel -->
+<path d="M 7 16 L 26 6 L 26 26 Z" fill="#a51212"></path>
+<circle cx="23" cy="16" fill="#ffe58f" r="2.4"></circle>
+</svg>
+</div>
+<!-- Dynamic Canvas Wheel -->
+<canvas class="w-full h-full rounded-full cursor-pointer transition-transform ease-out" height="720" id="wheel-canvas" width="720"></canvas>
+<!-- Center Indicator Hub: Rounded square with gold/brass trim, ESTIMATR title and red SPIN action -->
+<div class="absolute w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-2xl bg-[#171211] border-[3px] border-[#ffd659] shadow-[0_0_25px_rgba(0,0,0,0.95),inset_0_0_15px_rgba(0,0,0,0.9)] flex flex-col items-center justify-center z-20 cursor-pointer active:scale-95 transition-transform hover:border-[#ffe58f]" id="center-hub">
+<span class="font-headline-md font-bold text-sm sm:text-lg md:text-xl text-[#f4e0c2] tracking-wider text-center drop-shadow">ESTIMATR</span>
+<span class="font-label-sm text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-[#df1f1f] font-bold mt-1">SPIN</span>
+</div>
+</div>
+</main>
+<!-- Bottom Ambient Status Ticker & History HUD (Clear Contrast) -->
+<footer class="relative z-20 w-full px-6 sm:px-10 pb-5 sm:pb-6 flex items-end justify-between pointer-events-none shrink-0">
+<!-- Minimalist Session History / Recent Lands Tracker -->
+<div class="flex items-center gap-2 pointer-events-auto">
+<div class="flex items-center gap-2 px-3.5 py-1.5 rounded-sm border border-[#8c7046] bg-[#1e1715]/95 backdrop-blur-md shadow-xl">
+<span class="font-label-sm text-[11px] uppercase tracking-widest text-[#fce5b8] font-bold mr-1">Case Trail:</span>
+<div class="flex items-center gap-1.5" id="history-trail">
+<span class="px-2 py-0.5 rounded-xs font-label-sm text-[11px] font-bold transition-all bg-[#c51616] text-[#ffd7d2]">07</span>
+<span class="px-2 py-0.5 rounded-xs font-label-sm text-[11px] font-bold transition-all bg-[#3a3332] text-[#d7c4a7]">03</span>
+</div>
+</div>
+</div>
+<!-- Calibration indicator watermark -->
+<div class="hidden sm:flex items-center gap-2 text-[#d7c4a7] font-label-sm text-[11px] uppercase tracking-widest pr-48 font-medium">
+<span class="inline-block w-2 h-2 rounded-full bg-[#ffd659] shadow-[0_0_6px_#ffd659]"></span>
+<span>Behavioral Deduction Engine // CBI</span>
+</div>
+</footer>
+<!-- Bottom-Right Floating Action Button (Spin Trigger) -->
+<div class="fixed bottom-5 sm:bottom-6 right-5 sm:right-10 z-30 flex items-center gap-3">
+<button class="flex items-center gap-3 px-6 sm:px-7 py-3.5 sm:py-4 rounded-sm bg-[#c51616] hover:bg-[#b01313] text-white font-label-md text-xs sm:text-sm uppercase tracking-widest font-bold shadow-[0_10px_25px_rgba(197,22,22,0.5)] active:scale-95 transition-all duration-150 border-2 border-[#ffd659] focus:outline-none focus:ring-2 focus:ring-[#ffd659]" id="fab-spin-trigger">
+<span class="material-symbols-outlined text-[20px] sm:text-[22px] transition-transform duration-300" data-icon="refresh" id="fab-icon">refresh</span>
+<span id="fab-label">SPIN WHEEL</span>
+</button>
+</div>
+<!-- Modal / Confidential Case Dossier Reveal Card -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-200 opacity-0 pointer-events-none" id="result-modal">
+<div class="bg-[#1f1816] border-2 border-[#8c7046] rounded-md p-7 sm:p-8 max-w-lg w-full shadow-[0_25px_60px_rgba(0,0,0,0.95)] relative transform transition-transform duration-200 scale-95" id="result-card">
+<!-- Top Confidential dossier stamp -->
+<div class="absolute -top-3.5 left-6 bg-[#171211] px-3.5 py-0.5 border-2 border-[#c51616] text-[#df1f1f] font-label-sm text-[11px] uppercase font-bold tracking-widest shadow-md">
+      CBI EVIDENCE DOSSIER
+    </div>
+<!-- Close icon top-right -->
+<button class="absolute top-4 right-4 text-[#d7c4a7] hover:text-[#ffffff] transition-colors p-1.5 rounded-sm hover:bg-[#3a3332]" id="modal-close-btn" title="Dismiss">
+<span class="material-symbols-outlined text-[22px]" data-icon="close">close</span>
+</button>
+<!-- Modal Content: Dossier investigation look -->
+<div class="flex flex-col space-y-5 pt-2">
+<!-- Category, Difficulty & Sector Code Badges -->
+<div class="flex items-center gap-2 border-b border-[#5c403c] pb-3.5 pr-8">
+<span class="px-2.5 py-0.5 rounded-xs font-label-sm text-label-sm uppercase tracking-wider font-bold bg-[#c51616] text-[#ffd7d2]" id="modal-case-badge">CASE 07</span>
+<span class="px-2.5 py-0.5 rounded-xs font-label-sm text-label-sm uppercase tracking-wider font-bold bg-[#2f2927] border border-[#5c403c] text-[#ffd659]" id="modal-category">Market Sizing</span>
+<span class="px-2.5 py-0.5 rounded-xs font-label-sm text-label-sm uppercase tracking-wider text-[#d7c4a7] bg-[#2f2927] border border-[#5c403c]" id="modal-difficulty">Hard</span>
+<span class="ml-auto font-label-md text-label-md text-[#ffd659] font-bold tracking-wider" id="modal-code">SEC-07</span>
+</div>
+<!-- Target Case Question Inquiry Title -->
+<div class="py-1">
+<p class="font-label-sm text-[11px] uppercase tracking-widest text-[#d7c4a7] mb-2 font-bold" id="modal-subtitle">Investigative Hypothesis // CASE 07</p>
+<h3 class="font-headline-md text-xl sm:text-headline-md font-medium text-[#fcf5e8] leading-snug tracking-tight" id="modal-title">
+          How many movie tickets are sold in India in a week?
+        </h3>
+</div>
+<!-- Action Button -->
+<div class="pt-2">
+<button class="w-full py-3.5 px-5 bg-[#c51616] hover:bg-[#b01313] text-white font-label-md text-label-md uppercase tracking-wider font-bold rounded-xs border-2 border-[#ffd659] shadow-lg active:scale-98 transition-all flex items-center justify-center gap-2" id="modal-dismiss-btn">
+<span>Proceed With Analysis</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script type="module" src="code.js"></script>
+</body></html>

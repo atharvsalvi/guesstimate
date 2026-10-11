@@ -1,0 +1,38 @@
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+#wheel-canvas {
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+}
+
+.noir-desk-texture {
+  background-color: #1a1210;
+  background-image:
+    radial-gradient(ellipse at 50% 48%, rgba(220, 160, 80, 0.16) 0%, transparent 68%),
+    radial-gradient(circle at 86% 18%, rgba(197, 22, 22, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 12% 82%, rgba(130, 80, 40, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 10% 12%, rgba(200, 150, 70, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #201715 0%, #130d0c 100%);
+}
+
+.red-john-motif {
+  opacity: 0.85;
+  filter: drop-shadow(0 0 16px rgba(197, 22, 22, 0.7));
+}
+
+.confidential-stamp {
+  color: #df1f1f;
+  border: 2px solid #df1f1f;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+  letter-spacing: 0.16em;
+  box-shadow: inset 0 0 4px rgba(223, 31, 31, 0.2);
+}
+
+.brass-gradient-rim {
+  background: linear-gradient(135deg, #fce5b8 0%, #b89347 25%, #ffd659 50%, #8f6a25 75%, #fce5b8 100%);
+}
